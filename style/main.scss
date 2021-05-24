@@ -5,7 +5,7 @@
 body {
     display: flex;
     margin: 0;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
     background: #FCCF4D;
     font-family: 'Cairo', sans-serif;
@@ -16,16 +16,16 @@ header {
     text-align: center;
 
     img {
-        margin-top: 50px;
+        margin-top: 30px;
         padding: 35px;
         width: 300px;
     }
 
     h1 {
-        font-size: 50px;
+        font-size: 40px;
         font-family: 'Rock Salt', cursive;
         color: #4a4a4a;
-        margin-top: 20px;
+        margin: 20px 0 0;
     }
 }
 
@@ -33,34 +33,116 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
+    // justify-content: center;
     align-items: center;
     text-align: center;
 
-    .game-start {
-        .btn-start {
-            border: 3px solid #ffc107;
-            width: 200px;
-            height: 70px;
-            font-weight: 700;
+    .btn {
+        color: #4a4a4a;
+        width: 100px;
+        height: 40px;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: transparent;
+        font: inherit;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        background-color: #fff;
+        border: 2px solid #666;
+        transition: all .5s ease;
+
+        &-stripe {
+            position: relative;
+
+            &:after {
+                content: '';
+                height: 7px;
+                width: 100%;
+                background-image: repeating-linear-gradient(45deg,
+                        #666,
+                        #666 1px,
+                        transparent 2px,
+                        transparent 5px);
+                border-top: 1px solid #666;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background-size: 7px 7px;
+            }
 
             &:hover {
-                background-color: rgb(150, 26, 26);
+                background-color: #666;
+                color: #fff;
+                border-color: #666;
+
+                &:after {
+                    background-image: repeating-linear-gradient(45deg,
+                            #fff,
+                            #fff 1px,
+                            transparent 2px,
+                            transparent 5px);
+                    border-top: 1px solid #000;
+                    animation: stripe-slide 12s infinite linear forwards;
+                }
+            }
+        }
+    }
+
+
+    .game-start {
+
+        h2 {
+            color: #c51e00;
+        }
+
+        .btn-start {
+            border: 5px solid #ffc107;
+            width: 200px;
+            height: 70px;
+
+            &:hover {
+                background-color: #292929;
             }
         }
     }
 
     .quest {
+        .btn {
+            width: 150px;
+            height: 70px;
+            font-size: 30px;
+        }
 
         .btn-yes {
-            background-color: #28a745;
+            margin-right: 20px;
+            color: #066b24;
+
+            &:hover {
+                background-color: #066b24;
+                color: #fff;
+            }
         }
 
         .btn-no {
-            background-color: #ff0018;
+            margin-left: 20px;
+            color: #c51e00;
+
+            &:hover {
+                background-color: #c51e00;
+                color: #fff;
+            }
         }
     }
 
     .new-quest {
+        padding: 20px;
+
+        h2 {
+            margin: 10px;
+        }
+
         .ending-form {
             display: flex;
             flex-direction: column;
@@ -75,11 +157,12 @@ main {
 
             label {
                 font-weight: bold;
-                height: 40px;
+                height: 35px;
                 width: 300px;
             }
 
             .btn-add-guess {
+                margin-top: 50px;
                 background-color: #fd7e14;
                 width: 250px;
                 color: white;
@@ -88,57 +171,10 @@ main {
     }
 }
 
-.btn {
-    color: #4a4a4a;
-    width: 100px;
-    height: 40px;
-    outline: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    background: transparent;
-    // font: inherit;
-    line-height: normal;
-    text-transform: uppercase;
-    background-color: #fff;
-    border: 2px solid #666;
-    transition: all .5s ease;
-
-    &-stripe {
-        position: relative;
-
-        &:after {
-            content: '';
-            height: 7px;
-            width: 100%;
-            background-image: repeating-linear-gradient(45deg,
-                    #666,
-                    #666 1px,
-                    transparent 2px,
-                    transparent 5px);
-            border-top: 1px solid #666;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            background-size: 7px 7px;
-        }
-
-        &:hover {
-            background-color: #666;
-            color: #fff;
-            border-color: #666;
-
-            &:after {
-                background-image: repeating-linear-gradient(45deg,
-                        #fff,
-                        #fff 1px,
-                        transparent 2px,
-                        transparent 5px);
-                border-top: 1px solid #000;
-                animation: stripe-slide 12s infinite linear forwards;
-            }
-        }
-    }
+footer {
+    background-color: black;
+    text-align: center;
+    color: #add8e6;
 }
 
 @keyframes stripe-slide {

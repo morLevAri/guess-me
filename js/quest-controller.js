@@ -7,7 +7,6 @@ jQuery(function () {
   $('.btn-yes').click({ ans: 'yes' }, onUserResponse);
   $('.btn-no').click({ ans: 'no' }, onUserResponse);
   $('.btn-add-guess').click(onAddGuess);
-  // console.log('Started...');
   createQuestsTree();
 })
 
@@ -27,6 +26,7 @@ function onUserResponse(ev) {
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
       alert('Yes, I knew it!');
+      createQuestsTree()
       onRestartGame()
     } else {
       alert('I dont know...teach me!');
@@ -44,6 +44,7 @@ function onAddGuess(ev) {
   ev.preventDefault();
   var newGuess = $('#newGuess').val();
   var newQuest = $('#newQuest').val();
+  if (!newGuess && !newQuest) return;
   addGuess(newQuest, newGuess, gLastRes)
   $('#newGuess').val('');
   $('#newQuest').val('');

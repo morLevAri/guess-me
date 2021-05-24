@@ -9,7 +9,7 @@ function createQuestsTree() {
     if (!gQuestsTree) {
         gQuestsTree = createQuest('Is it a Male?');
         gQuestsTree.yes = createQuest('Is it Gandhi?');
-        gQuestsTree.no = createQuest('Is it Rita?');
+        gQuestsTree.no = createQuest('Is it Madonna?');
         _saveQuestStorage()
     }
     gCurrQuest = gQuestsTree;
