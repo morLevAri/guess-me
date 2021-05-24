@@ -7,12 +7,12 @@ jQuery(function () {
   $('.btn-yes').click({ ans: 'yes' }, onUserResponse);
   $('.btn-no').click({ ans: 'no' }, onUserResponse);
   $('.btn-add-guess').click(onAddGuess);
-  console.log('Started...');
+  // console.log('Started...');
   createQuestsTree();
 })
 
 function onStartGuessing() {
-  $('.game-start').hide('slow')
+  $('.game-start').hide('1000')
   renderQuest();
   $('.quest').show()
 }
@@ -31,7 +31,7 @@ function onUserResponse(ev) {
     } else {
       alert('I dont know...teach me!');
       $('.quest').hide()
-      $('.new-quest').show('slow')
+      $('.new-quest').show('1000')
     }
   } else {
     gLastRes = res;

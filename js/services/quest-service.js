@@ -7,9 +7,9 @@ function createQuestsTree() {
     gQuestsTree = loadFromStorage(STORAGE_KEY)
 
     if (!gQuestsTree) {
-        gQuestsTree = createQuest('Male?');
-        gQuestsTree.yes = createQuest('Gandhi?');
-        gQuestsTree.no = createQuest('Rita?');
+        gQuestsTree = createQuest('Is it a Male?');
+        gQuestsTree.yes = createQuest('Is it Gandhi?');
+        gQuestsTree.no = createQuest('Is it Rita?');
         _saveQuestStorage()
     }
     gCurrQuest = gQuestsTree;
