@@ -27,6 +27,7 @@ function onUserResponse(ev) {
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
       alert('Yes, I knew it!');
+      onRestartGame()
     } else {
       alert('I dont know...teach me!');
       $('.quest').hide()
@@ -34,22 +35,25 @@ function onUserResponse(ev) {
     }
   } else {
     gLastRes = res;
-    moveToNextQuest();
+    moveToNextQuest(gLastRes);
     renderQuest();
   }
 }
 
 function onAddGuess(ev) {
-  var res = ev.data.ans;
   ev.preventDefault();
   var newGuess = $('#newGuess').val();
   var newQuest = $('#newQuest').val();
-  gLastRes = res;
   addGuess(newQuest, newGuess, gLastRes)
+  $('#newGuess').val('');
+  $('#newQuest').val('');
+  onRestartGame()
 }
+
 
 function onRestartGame() {
   $('.new-quest').hide();
+  $('.quest').hide()
   $('.game-start').show();
   gLastRes = null;
 }

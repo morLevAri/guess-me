@@ -8,8 +8,8 @@ function createQuestsTree() {
 
     if (!gQuestsTree) {
         gQuestsTree = createQuest('Male?');
-        gQuestsTree.yes = createQuest('Gandhi');
-        gQuestsTree.no = createQuest('Rita');
+        gQuestsTree.yes = createQuest('Gandhi?');
+        gQuestsTree.no = createQuest('Rita?');
         _saveQuestStorage()
     }
     gCurrQuest = gQuestsTree;
@@ -29,17 +29,21 @@ function isChildless(node) {
 }
 
 function moveToNextQuest(res) {
-    gPrevQuest = res;
-    gCurrQuest = getCurrQuest();
-    console.log(gCurrQuest);
+    gPrevQuest = gCurrQuest;
+    gCurrQuest = gCurrQuest[res];
 }
 
 function addGuess(newQuestTxt, newGuessTxt, lastRes) {
-    console.log(newQuestTxt);
-    console.log(newGuessTxt);
-    console.log(lastRes);
-    createQuestsTree()
-    // TODO: Create and Connect the 2 Quests to the quetsions tree
+    var newQuest = createQuest(newQuestTxt);
+    newQuest.yes = createQuest(newGuessTxt);
+    newQuest.no = gCurrQuest;
+    gPrevQuest[lastRes] = newQuest;
+
+    gCurrQuest = gQuestsTree;
+    gPrevQuest = null;
+    console.log(gQuestsTree);
+    _saveQuestStorage()
+
 }
 
 function getCurrQuest() {
