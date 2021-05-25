@@ -46,6 +46,27 @@ function addGuess(newQuestTxt, newGuessTxt, lastRes) {
 
 }
 
+function openModal(txt) {
+    var modal = $(".modal").get();
+    var modalTxt = $(".modal h1").get();
+    $(modal).show()
+    $(modalTxt).html(txt)
+    closeModal()
+}
+
+function closeModal() {
+    $('.modal span').click(function () {
+        $(".modal").hide()
+    })
+
+    window.onclick = function (event) {
+        var modal = document.querySelector('.modal');
+        if (event.target == modal) {
+            $(".modal").hide()
+        }
+    }
+}
+
 function getCurrQuest() {
     return gCurrQuest
 }
@@ -53,6 +74,3 @@ function getCurrQuest() {
 function _saveQuestStorage() {
     saveToStorage(STORAGE_KEY, gQuestsTree)
 }
-
-
-

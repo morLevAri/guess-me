@@ -25,11 +25,11 @@ function onUserResponse(ev) {
   var res = ev.data.ans;
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
-      alert('Yes, I knew it!');
+      openModal('Yes, I knew it!')
       createQuestsTree()
       onRestartGame()
     } else {
-      alert('I dont know...teach me!');
+      openModal('I dont know... <br> Teach me!')
       $('.quest').hide()
       $('.new-quest').show('1000')
     }
@@ -50,7 +50,6 @@ function onAddGuess(ev) {
   $('#newQuest').val('');
   onRestartGame()
 }
-
 
 function onRestartGame() {
   $('.new-quest').hide();

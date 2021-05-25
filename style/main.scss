@@ -33,7 +33,6 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     text-align: center;
 
@@ -90,7 +89,6 @@ main {
         }
     }
 
-
     .game-start {
 
         h2 {
@@ -137,7 +135,7 @@ main {
     }
 
     .new-quest {
-        padding: 20px;
+        padding: 10px;
 
         h2 {
             margin: 10px;
@@ -162,7 +160,7 @@ main {
             }
 
             .btn-add-guess {
-                margin-top: 50px;
+                margin-top: 30px;
                 background-color: #fd7e14;
                 width: 250px;
                 color: white;
@@ -170,6 +168,81 @@ main {
         }
     }
 }
+
+.modal {
+    display: flex;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        margin: 20% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        width: 20rem;
+        height: 15rem;
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #aaa;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 20px;
+            font-weight: bold;
+
+            &:hover,
+            &:active {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer {
     background-color: black;
